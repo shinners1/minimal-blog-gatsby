@@ -6,9 +6,11 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    title: `Shinners Blog`,
+    siteTitle: `Shinners Blog`,
     Author: `Shinners`,
     siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteUrl:`https://shinners.vercel.app/`,
+    
   },
   plugins: [
     {
