@@ -9,8 +9,7 @@ module.exports = {
     siteTitle: `Shinners Blog`,
     Author: `Shinners`,
     siteTitleAlt: `Minimal Blog - Gatsby Theme`,
-    siteUrl:`https://shinners.vercel.app/`,
-    
+    // siteUrl:`https://shinners.vercel.app/`,
   },
   plugins: [
     {
