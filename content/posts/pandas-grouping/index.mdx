@@ -1,0 +1,55 @@
+---
+title: Pandas Groupby로 그룹별 집계하기 
+date: 2020-10-02
+slug: "/Pandas Groupby로 그룹별 집계하기"
+tags:
+    - pandas
+    - python 
+---
+
+
+
+```python
+import pandas as pd
+
+direc = '..\\'
+# 대상 파일을 읽어옴.
+df = pd.read_parquet(direc+'data.parquet.gzip')
+
+
+# 하나의 컬럼만 groupby 할 때  
+system_list = df.groupby('시스템').size().reset_index()
+
+
+# 여러 컬럼을 groupby 할 때 
+holiday_pivot = holiday_access_full_logs.groupby(['USER_NM','Depths'','USER_IP','System','Date','Days']).sum().reset_index()
+
+```
+
+
+### 하나만 grouping 할 때 
+groupby 괄호 안에 해당 '컬럼명' 써주면 된다. 
+groupby를 쓴 후에 `size()` 또는 `max()`  `mean()` 등을 사용할 수 있다. 
+groupby를 사용한 결과값 type은 Series 타입이다. 
+나는 DataFrame으로 만들고 싶어서 `reset_index()` 를 사용하여 DataFrame 형태로 결과값을 저장했다. 
+ 
+
+```python
+
+system_list = df.groupby('시스템').size().reset_index()
+
+```
+
+
+
+### 여러 컬럼을 grouping 할 때 
+여러개 컬럼을 groupby할 때는 groupby 괄호 안에 ['컬럼명','컬럼명'] 과 같이 써주면 된다. 
+
+
+```python
+
+holiday_pivot = holiday_access_full_logs.groupby(['USER_NM','Depths'','USER_IP','System','Date','Days']).sum().reset_index()
+
+
+```
+
