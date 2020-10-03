@@ -1,0 +1,66 @@
+---
+title: Pandas Groupby로 그룹별 집계하기 
+date: 2020-10-02
+slug: "/Pandas-Groupby로-그룹별-집계하기"
+tags:
+    - pandas
+    - python 
+---
+
+
+### 어떤 컬럼들이 있는지 확인
+```python
+data.columns
+```
+
+### 숫자로 되어 있는 컬럼의 평균/중간값 등 구하기
+```python
+data.describe()
+```
+
+### 특정 열 가져오기  
+- 열을 가져오게 되면 이 값은 Series로 저장됨 
+```python
+data['column']
+```
+
+### 두 개 이상의 열을 가져오기
+```python
+data[['column1', 'column2']]
+```
+
+### 특정 행을 가져오려면
+```python
+data.loc['행이름 또는 행번호']
+data.loc['Seoul']
+data.loc[125]
+```
+
+### 두 개 이상의 행을 가져오려면
+```python
+# 1행과 3행을 가져옴
+data.loc[[1,3]]
+```
+
+### 특정 행과 열을 모두 가져오려면
+```python
+data.loc[[1,3]][['column1','column2']]
+```
+
+### 조건에 맞는 열 값만 보려면 
+```python
+data.loc[data['column1'] == '2020-08-01', ['column3','column4']]
+```
+
+### 컬럼을 삭제하려면
+```python
+data = data.drop(['column3','column1'])
+```
+
+
+
+
+참고 : 
+https://brunch.co.kr/@parkean/7
+https://daily-life-of-bsh.tistory.com/86
+
