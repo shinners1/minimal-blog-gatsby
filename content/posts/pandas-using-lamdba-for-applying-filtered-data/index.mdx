@@ -1,6 +1,6 @@
 ---
 title: Pandas lambda를 이용해 한 컬럼에 필터링한 데이터 넣기
-date: 2020-10-02
+date: 2020-10-03
 slug: "/Pandas-lambda-이용해-한-컬럼에-필터링한-데이터-넣기"
 tags:
     - pandas
@@ -14,7 +14,7 @@ apply lambda 를 쓰기 위해선 `def` 함수를 쓰는게 핵심이었다.
 
 
 
-```python:title=src/components/post.jsx {5-7,10}
+```python:title=mainfile.py
 # 파일들을 불러와 준다. 
 df = pd.read_excel('편집대상파일.xlsx')
 df2 = pd.read_excel('1번엑셀.xlsx')
@@ -57,16 +57,17 @@ def name_return(Names,IDs,IPs):
 
 위와 같이 def 함수를 저장해주고, 테스트를 아래와 같이 한번 해준다.
 
-
-```python
+```python noLineNumbers
 name_return('missing','id는1234','11.11.111.123')
 ```
 
-```title=반환값 
+아래와 같이 반환된다.
+```title=반환값 noLineNumbers
  '홍길동'
 ```
 
-```python
+테스트가 잘 되었으면 lambda를 사용한다.
+```python noLineNumbers
 # lambda 적용
 df.USER_NM = df.apply(lambda row: name_return(row['USER_NM'],row['USER_ID'],row['USER_IP']), axis=1)
 ```
